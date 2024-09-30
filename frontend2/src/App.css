@@ -1,0 +1,142 @@
+/* .App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+} */
+
+/* Full-page background image */
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-image: url("../public/preview.jpg"); */
+  background-size: cover;
+  /* Ensures the background image covers the whole page */
+}
+
+/* Blur the background without affecting the CAPTCHA box */
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: inherit;
+  background-size: cover;
+  filter: blur(10px);
+  /* Blurs only the background image */
+  z-index: 1;
+  /* Places the blur effect beneath other elements */
+}
+
+/* Glassy CAPTCHA container with a bulging effect */
+.captcha-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.2);
+  /* Semi-transparent white */
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  /* Light semi-transparent border */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  /* Stronger shadow for bulging effect */
+  backdrop-filter: blur(10px);
+  /* Glassy blur effect for the CAPTCHA box */
+  -webkit-backdrop-filter: blur(10px);
+  /* Ensure support on WebKit browsers */
+  transform: scale(1.25);
+  /* Scales the entire container */
+  position: relative;
+  z-index: 10;
+  /* Ensures the CAPTCHA box is above the blurred background */
+}
+
+.captcha-header {
+  font-family: 'Arial', sans-serif;
+  font-size: 30px;
+  /* Increased size by 1.25x */
+  font-weight: bold;
+  color: #4caf50;
+  margin-bottom: 15px;
+}
+
+.captcha-input {
+  width: 100%;
+  padding: 12.5px;
+  /* Increased padding by 1.25x */
+  margin: 12.5px 0;
+  /* Increased margin by 1.25x */
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  /* Slightly transparent border */
+  border-radius: 5px;
+  font-size: 20px;
+  /* Increased font size by 1.25x */
+  background-color: rgba(255, 255, 255, 0.4);
+  /* Semi-transparent input field */
+  color: #fff;
+  /* White text for better readability */
+  outline: none;
+}
+
+.captcha-button {
+  width: 100%;
+  padding: 12.5px;
+  /* Increased padding by 1.25x */
+  background-color: rgba(76, 175, 80, 0.8);
+  /* Slightly transparent button */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 10px;
+  /* Increased font size by 1.25x */
+  transition: background-color 0.3s ease;
+}
+
+.captcha-button:hover {
+  background-color: rgba(69, 160, 73, 0.8);
+}
+
+input::placeholder {
+  font-size: 16px;
+
+}
